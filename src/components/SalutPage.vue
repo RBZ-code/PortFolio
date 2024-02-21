@@ -1,6 +1,7 @@
 <template>
-    <section :id="sectionId">
-        <img class="ordi" src="../assets/ordi.png" alt="" />
+    <section :id="sectionId" class="container">
+        <FondAnimation class="background" />
+        <!-- <img class="ordi" src="../assets/ordi.png" alt="" /> -->
         <div class="content">
             <div class="blockTitle" @click="changeEmoji">
                 <h2 class="section-title" ref="title">
@@ -12,7 +13,6 @@
                 <!-- Texte initial vide -->
             </p>
         </div>
-
         <SectionButton
             class="btn"
             :nextSection="nextSection"
@@ -22,12 +22,13 @@
 </template>
 
 <script>
+import FondAnimation from "@/components/FondAnimation.vue";
 import SectionButton from "@/components/SectionButton.vue";
 
 export default {
     name: "SectionPage",
     components: {
-        SectionButton,
+        SectionButton,FondAnimation
     },
     props: ["prevSection", "nextSection"],
     data() {
@@ -118,6 +119,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+    // position: relative;
+    overflow: hidden;
+    padding: 0;
+
+}
+
+.background {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
 
 .content{
     animation: bounce-in-right 2s ease forwards;

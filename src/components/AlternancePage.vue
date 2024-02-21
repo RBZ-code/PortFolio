@@ -35,9 +35,31 @@
             </p>
         </div>
         <div class="block-btns">
-            <CustomButton class="btn" buttonText="Contactez moi" background="#FFE27D" gradient="url(#paint0_linear)" />
-            <CustomButton class="btn" buttonText="Mon CV" background="#FFE27D" gradient="url(#paint0_linear)" />
+            <CustomButton
+                class="btn"
+                buttonText="Contactez moi"
+                background="#3498db"
+                gradient="url(#paint0_linear)"
+            />
+            <CustomButton
+                class="btn cv"
+                buttonText="Mon CV"
+                background="#3498db"
+                gradient="url(#paint0_linear)"
+                @click="openCVModal"
+            />
         </div>
+        <!-- Modal -->
+
+        <div v-if="showCVModal" class="container-img" @click="closeCVModal">
+            <img
+                src="../assets/Developpeur Web - Romain Bezolles - CV-1.png"
+                alt="CV-Romain Bezolles"
+                class="cv-page"
+            />
+        </div>
+
+        <!-- Contenu de ton CV ici -->
 
         <img src="../assets/Ninja.png" alt="ninja" class="ninja" />
         <img src="../assets/Chef2.png" alt="Cuisinier" class="chef" />
@@ -52,12 +74,12 @@ export default {
     data() {
         return {
             sectionId: "Alternance-section",
+            showCVModal: false, // Ajoute une variable pour gérer l'affichage de la modale du CV
         };
     },
     components: {
         SectionButton,
         CustomButton,
-
     },
     props: {
         prevSection: String,
@@ -67,12 +89,40 @@ export default {
         navigate(section) {
             this.$emit("changeSection", section);
         },
+        openCVModal() {
+            this.showCVModal = true; // Ouvre la modale du CV
+        },
+        closeCVModal() {
+            this.showCVModal = false; // Ferme la modale du CV
+            console.log("test");
+        },
     },
 };
 </script>
 
 <style scoped>
-.block-btns{
+.container-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: flex;
+    align-items: center; /* Centrer verticalement */
+    justify-content: center;
+}
+
+.cv-page {
+    max-width: 90vw; /* Utilisation d'une largeur maximale relative à la largeur de l'écran */
+    max-height: 90vh; /* Utilisation d'une hauteur maximale relative à la hauteur de l'écran */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Ajustement de la taille de l'image pour qu'elle tienne dans le conteneur tout en préservant les proportions */
+    z-index: 3;
+}
+.block-btns {
     margin-top: 100px;
     display: flex;
     flex-direction: row;
@@ -108,6 +158,8 @@ export default {
     color: #ffffff;
     position: relative;
     overflow: hidden;
+    overflow-y: visible;
+
     animation: bounce-in-left 2s ease forwards;
 }
 

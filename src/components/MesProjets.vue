@@ -57,7 +57,7 @@ export default {
                     header: "Animations",
                     content: "Content 2",
                 },
-                // Ajouter plus de données de cartes au besoin
+            
             ]
         };
     },
@@ -78,6 +78,11 @@ export default {
 </script>
 
 <style scoped>
+.container_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .btn-bot, .btn-top {
     z-index: 2;
@@ -103,6 +108,9 @@ export default {
     color: #ffffff;
     position: relative;
     overflow: hidden;
+    overflow-y:visible;
+    
 }
+
 
 </style>

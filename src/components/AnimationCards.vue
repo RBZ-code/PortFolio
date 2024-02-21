@@ -1,7 +1,7 @@
 <template>
     <section
         :id="sectionId"
-        :class="{ 'projets-section': true, active: isActive }"
+        :class="{ 'animation-section': true, active: isActive }"
     >
         <div class="container">
             <div class="card-wrap" v-for="(card, index) in cards" :key="index">
@@ -98,9 +98,10 @@ export default {
 </script>
 
 <style>
+
 /* styles CSS */
 .container {
-    padding: 40px 80px;
+    padding: 0 80px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
