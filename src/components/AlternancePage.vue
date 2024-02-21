@@ -13,49 +13,55 @@
         </div>
 
         <div class="content">
-            <h2 class="section-title" ref="title">À propos de moi</h2>
-            <p class="about-description">Bonjour à tous !</p>
+            <h2 class="section-title" ref="title">
+                Recherche de stage et d'alternance
+            </h2>
             <p class="about-description">
-                Je suis Romain Bezolles, un passionné de développement web en pleine reconversion professionnelle. Originaire de Bordeaux, j'ai toujours été attiré par la créativité et la technologie.
+                Je suis actuellement à la recherche d'un stage dans le domaine
+                du développement web. Passionné et motivé, je suis prêt à
+                plonger tête baissée dans un environnement professionnel pour
+                acquérir de l'expérience concrète et mettre mes compétences en
+                pratique.
             </p>
             <p class="about-description">
-                À 33 ans, après avoir exercé en tant que chef cuisinier, je me lance dans une nouvelle aventure en entreprenant une formation pour devenir développeur web. Mon parcours atypique, nourri par ma passion pour les jeux vidéo, m'a conduit à explorer le monde fascinant de la programmation.
+                Si vous cherchez quelqu'un de curieux et déterminé à rejoindre
+                votre équipe, je suis là !
             </p>
             <p class="about-description">
-                En dehors du développement web, je suis un amateur de sports de combat, inspiré par les héros de Dragon Ball, qui ont bercé mon enfance. 
-            </p>
-            <p class="about-description">
-                Je suis enthousiaste à l'idée de continuer à apprendre et à évoluer dans le domaine du développement web. Si vous partagez mes passions ou si vous souhaitez simplement discuter, n'hésitez pas à me contacter !
+                Je suis également ouvert à une opportunité d'alternance pour
+                l'année prochaine. Si vous êtes prêts à accueillir un étudiant
+                motivé et désireux d'apprendre tout en contribuant à votre
+                projet, n'hésitez pas à me contacter.
             </p>
         </div>
-        <div class="container_btn">
-            <SectionButton
-                class="btn-bot"
-                :nextSection="nextSection"
-                @changeSection="navigate"
-            />
+        <div class="block-btns">
+            <CustomButton class="btn" buttonText="Contactez moi" background="#FFE27D" gradient="url(#paint0_linear)" />
+            <CustomButton class="btn" buttonText="Mon CV" background="#FFE27D" gradient="url(#paint0_linear)" />
         </div>
+
         <img src="../assets/Ninja.png" alt="ninja" class="ninja" />
-        <img src="../assets/Chef2.png" alt="Cuisinier" class="chef">
+        <img src="../assets/Chef2.png" alt="Cuisinier" class="chef" />
     </section>
 </template>
 
 <script>
 import SectionButton from "@/components/SectionButton.vue";
+import CustomButton from "@/components/CustomButton.vue";
 
 export default {
     data() {
         return {
-            sectionId: "about-section",
+            sectionId: "Alternance-section",
         };
     },
     components: {
         SectionButton,
+        CustomButton,
+
     },
     props: {
         prevSection: String,
-        nextSection: String,
-        isActive: Boolean, // Définissez la prop isActive ici
+        isActive: Boolean,
     },
     methods: {
         navigate(section) {
@@ -66,6 +72,12 @@ export default {
 </script>
 
 <style scoped>
+.block-btns{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
 
 .chef {
     z-index: -2;
@@ -99,18 +111,17 @@ export default {
     animation: bounce-in-left 2s ease forwards;
 }
 
-
 @keyframes bounce-in-left {
     0% {
         opacity: 0;
-        transform: translateX(-200%);
+        transform: translateX(200%);
     }
     60% {
         opacity: 1;
-        transform: translateX(30px);
+        transform: translateX(-30px);
     }
     80% {
-        transform: translateX(-10px);
+        transform: translateX(10px);
     }
     100% {
         transform: translateX(0);

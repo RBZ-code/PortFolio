@@ -1,15 +1,17 @@
 <template>
     <section :id="sectionId">
         <img class="ordi" src="../assets/ordi.png" alt="" />
-        <div class="blockTitle" @click="changeEmoji">
-            <h2 class="section-title" ref="title">
-                <!-- Titre initial vide -->
-            </h2>
-            <span class="emoji" ref="emoji"></span>
+        <div class="content">
+            <div class="blockTitle" @click="changeEmoji">
+                <h2 class="section-title" ref="title">
+                    Salut <span class="emoji" ref="emoji">🤓</span>
+                </h2>
+            
+            </div>
+            <p class="section-content" ref="content">
+                <!-- Texte initial vide -->
+            </p>
         </div>
-        <p class="section-content" ref="content">
-            <!-- Texte initial vide -->
-        </p>
 
         <SectionButton
             class="btn"
@@ -34,6 +36,7 @@ export default {
             isActive: false,
         };
     },
+    
     methods: {
         navigate(section) {
             this.$emit("changeSection", section);
@@ -74,13 +77,8 @@ export default {
         async startTyping() {
 
             
-            const emojiText = "🤓";
-            const titleText = "Salut ";
+           
             const contentText = "Bienvenue sur le portfolio de Romain Bezolles";
-
-            await this.typeWriter(titleText, this.$refs.title);
-
-            await this.typeWriter(emojiText, this.$refs.emoji);
 
             await this.typeWriter(contentText, this.$refs.content);
 
@@ -104,10 +102,45 @@ export default {
     mounted() {
         this.startTyping();
     },
+    watch: {
+    isActive: function(newValue) {
+        if (newValue) {
+            this.startTyping(); // Appel de startTyping() si la page est active
+        } else {
+            // Remettre le contenu à l'état initial si la page n'est plus active
+            this.$refs.title.textContent = "";
+            this.$refs.emoji.textContent = "";
+            this.$refs.content.textContent = "";
+        }
+    },
+},
 };
 </script>
 
 <style lang="scss" scoped>
+
+.content{
+    animation: bounce-in-right 2s ease forwards;
+    z-index: 2;
+}
+
+
+@keyframes bounce-in-right {
+    0% {
+        opacity: 0;
+        transform: translateY(-300%);
+    }
+    60% {
+        opacity: 1;
+        transform: translatey(+30px);
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 .btn {
     z-index: 2;
     position: absolute;
@@ -125,15 +158,10 @@ export default {
 .emoji {
     display: block;
     align-self: center;
-    margin-bottom: 26px;
     font-size: 46px;
-    margin-left: 4%;
 }
 
 .blockTitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
     transition: all 0.35s linear;
     z-index: 2;
@@ -150,7 +178,7 @@ section {
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background-color: #0d0d0d;
+    background-color: #0D0D0D;
     color: aliceblue;
     position: relative;
     overflow: hidden;
@@ -158,6 +186,10 @@ section {
     .section-title {
         font-size: 46px;
         margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
     }
 }
 
