@@ -1,5 +1,5 @@
 <template>
-  <button :style="{ background: background }" @click="onClick">
+  <button :style="{ background: background }" @click="onClick, navigate(nextSection)">
     {{ buttonText }}
     <svg width="79" height="46" viewBox="0 0 79 46" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f)">
@@ -25,14 +25,23 @@ export default {
   props: {
     buttonText: String,
     background: String,
-    gradient: String
+    gradient: String,
+    nextSection: {
+      type: String,
+      required: true
+    },
+    
   },
   methods: {
     onClick() {
      this.$emit("click");
-    }
+    },
+     navigate(section) {
+      this.$emit("changeSection", section);
+    },
   }
 };
+
 </script>
 
 <style scoped>

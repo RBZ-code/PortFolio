@@ -40,6 +40,8 @@
                 buttonText="Contactez moi"
                 background="#3498db"
                 gradient="url(#paint0_linear)"
+                :nextSection="nextSection"
+                @changeSection="navigate"
             />
             <CustomButton
                 class="btn cv"
@@ -52,14 +54,31 @@
         <!-- Modal -->
 
         <div v-if="showCVModal" class="container-img" @click="closeCVModal">
-            <img
-                src="../assets/Developpeur Web - Romain Bezolles - CV-1.png"
-                alt="CV-Romain Bezolles"
-                class="cv-page"
-            />
+            <div class="cv-page-container">
+                <img
+                    v-bind:class="{ 'cv-page-large': enlargedImage }"
+                    src="../assets/Developpeur Web - Romain Bezolles - CV-1.png"
+                    alt="CV-Romain Bezolles"
+                    class="cv-page"
+                    @click="toggleImageSize"
+                />
+                <a
+                    href="#"
+                    @click="downloadItem"
+                    class="download-btn"
+                    v-bind:class="{ 'download-btn-large': enlargedImage }"
+                >
+                    <img
+                        src="../assets/download.png"
+                        class="download-icon"
+                        alt="Télécharger le CV"
+                    />
+                </a>
+            </div>
         </div>
+        
 
-        <!-- Contenu de ton CV ici -->
+    
 
         <img src="../assets/Ninja.png" alt="ninja" class="ninja" />
         <img src="../assets/Chef2.png" alt="Cuisinier" class="chef" />
@@ -69,12 +88,14 @@
 <script>
 import SectionButton from "@/components/SectionButton.vue";
 import CustomButton from "@/components/CustomButton.vue";
+import Axios from "axios";
 
 export default {
     data() {
         return {
             sectionId: "Alternance-section",
-            showCVModal: false, // Ajoute une variable pour gérer l'affichage de la modale du CV
+            showCVModal: false,
+            enlargedImage: false,
         };
     },
     components: {
@@ -84,44 +105,126 @@ export default {
     props: {
         prevSection: String,
         isActive: Boolean,
+        nextSection: String,
     },
     methods: {
+        downloadItem() {
+            const url = "../assets/Cuisinier.png"; 
+            const label = "Cuisinier.png"; 
+
+            Axios.get(url, { responseType: "blob" })
+                .then((response) => {
+                    const blob = new Blob([response.data], {
+                        type: "application/pdf",
+                    });
+                    const link = document.createElement("a");
+                    link.href = URL.createObjectURL(blob);
+                    link.download = label;
+                    link.click();
+                    URL.revokeObjectURL(link.href);
+                })
+                .catch(console.error);
+        },
+
         navigate(section) {
             this.$emit("changeSection", section);
         },
         openCVModal() {
-            this.showCVModal = true; // Ouvre la modale du CV
+            this.showCVModal = true;
+            this.enlargedImage = false;
         },
-        closeCVModal() {
-            this.showCVModal = false; // Ferme la modale du CV
-            console.log("test");
+        closeCVModal(event) {
+            if (!event.target.closest(".cv-page-container")) {
+                this.showCVModal = false;
+            }
+        },
+        toggleImageSize() {
+            this.enlargedImage = !this.enlargedImage;
         },
     },
 };
 </script>
 
 <style scoped>
+.cv-page-large {
+    cursor: zoom-out !important;
+    transform: translateY(15%) !important;
+    z-index: 9;
+    scale: 1.5;
+    transition: 0.5s;
+}
+
+.download-btn {
+    z-index: 10;
+}
+
+.download-btn-large {
+    visibility: hidden;
+}
+
 .container-img {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     display: flex;
-    align-items: center; /* Centrer verticalement */
+    align-items: center;
     justify-content: center;
+    overflow: auto;
+}
+.cv-page-container {
+    position: relative;
 }
 
 .cv-page {
-    max-width: 90vw; /* Utilisation d'une largeur maximale relative à la largeur de l'écran */
-    max-height: 90vh; /* Utilisation d'une hauteur maximale relative à la hauteur de l'écran */
+    max-width: 90vw;
+    max-height: 90vh;
     width: auto;
     height: auto;
-    object-fit: contain; /* Ajustement de la taille de l'image pour qu'elle tienne dans le conteneur tout en préservant les proportions */
+    object-fit: contain;
     z-index: 3;
+    animation: modalFadeIn 1s forwards ease-in;
+    transform-origin: center;
+
+    transition: 0.5s;
+    cursor: zoom-in;
+    position: relative;
 }
+
+.download-icon {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+@keyframes modalFadeIn {
+    0% {
+        opacity: 0;
+        height: 0;
+        transform: scaleY(0);
+    }
+    80% {
+        opacity: 1;
+        height: 100%;
+        transform: scaleY(1.1);
+    }
+    90% {
+        opacity: 1;
+        height: 100%;
+        transform: scaleY(0.9);
+    }
+    100% {
+        opacity: 1;
+        height: 100%;
+        transform: scaleY(1);
+    }
+}
+
 .block-btns {
     margin-top: 100px;
     display: flex;
@@ -157,8 +260,8 @@ export default {
     background-color: #0d0d0d;
     color: #ffffff;
     position: relative;
-    overflow: hidden;
-    overflow-y: visible;
+    /* overflow: hidden; */
+    overflow-y: auto;
 
     animation: bounce-in-left 2s ease forwards;
 }

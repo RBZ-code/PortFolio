@@ -29,7 +29,7 @@ html {
     width: 1px;
     height: 1px;
     background: transparent;
-    /* Réglez les positions des étoiles en fonction des dimensions de la section wrapper */
+ 
 }
 
 #stars4, #stars6{

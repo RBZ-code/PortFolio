@@ -30,17 +30,19 @@
         prevSection="projets"
         @changeSection="changeSection"
         data-section="experience"
+        :isActive="currentSection === 'experience'"
     />
     <Contact
         v-show="currentSection === 'contact'"
         prevSection="experience"
         @changeSection="changeSection"
         data-section="contact"
+        :isActive="currentSection === 'contact'"
     />
 </template>
 
 <script>
-import Header from "../components/Headerpage.vue";
+
 import Contact from "../components/ContactPage.vue";
 import Salut from "../components/SalutPage.vue";
 import Propos from "../components/APropos.vue";
@@ -49,7 +51,6 @@ import Alternance from "../components/AlternancePage.vue"
 
 export default {
     components: {
-        Header,
         Contact,
         Salut,
         Propos,

@@ -55,7 +55,7 @@ export default {
     props: {
         prevSection: String,
         nextSection: String,
-        isActive: Boolean, // Définissez la prop isActive ici
+        isActive: Boolean, 
     },
     methods: {
         navigate(section) {

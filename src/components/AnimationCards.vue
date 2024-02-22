@@ -42,7 +42,6 @@ import { ref, onMounted } from "vue";
 export default {
     props: {
         isActive: Boolean,
-        // Déclarer une prop pour recevoir les données des cartes
         cards: {
             type: Array,
             required: true
@@ -99,7 +98,7 @@ export default {
 
 <style>
 
-/* styles CSS */
+
 .container {
     padding: 0 80px;
     display: flex;
