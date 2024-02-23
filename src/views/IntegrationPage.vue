@@ -1,8 +1,5 @@
 <template>
-    <section
-        :id="sectionId"
-        :class="{ 'projets-section': true, active: isActive }"
-    >
+    <section class="projets-section">
         <div class="container_btn">
             <SectionButton
                 class="btn-top"
@@ -13,8 +10,7 @@
         </div>
 
         <div class="content">
-            <!-- Passer les données des cartes en tant que prop -->
-            <Animation :cards="cardsData"/>       
+            <Animation :cards="cardsData" />
         </div>
 
         <div class="container_btn">
@@ -23,6 +19,7 @@
                 :nextSection="nextSection"
                 @changeSection="navigate"
             />
+            
         </div>
     </section>
 </template>
@@ -34,12 +31,11 @@ import SectionButton from "@/components/SectionButton.vue";
 export default {
     data() {
         return {
-            sectionId: "projets-section",
-            // Définir les données des cartes ici
+           
             cardsData: [
                 {
-                    image: "https://images.unsplash.com/photo-1504370164829-8c6ef0c41d06?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    header: "Games",
+                    image: "../assets/snake.png",
+                    header: "Snake",
                     content: "Quelques Jeux à essayer",
                 },
                 {
@@ -49,7 +45,7 @@ export default {
                 },
                 {
                     image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    header: "Integrations",
+                    header: "Intégrations",
                     content: "Content 2",
                 },
                 {
@@ -57,17 +53,17 @@ export default {
                     header: "Animations",
                     content: "Content 2",
                 },
-            
-            ]
+            ],
         };
     },
     components: {
-        SectionButton, Animation,
+        SectionButton,
+        Animation,
     },
     props: {
         prevSection: String,
         nextSection: String,
-        isActive: Boolean, 
+        isActive: Boolean,
     },
     methods: {
         navigate(section) {
@@ -76,19 +72,20 @@ export default {
         toGames() {
             this.$router.push("/games");
         },
+        
     },
 };
 </script>
 
 <style scoped>
-
 .container_btn {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn-bot, .btn-top {
+.btn-bot,
+.btn-top {
     z-index: 2;
     position: absolute;
 }
@@ -112,9 +109,7 @@ export default {
     color: #ffffff;
     position: relative;
     overflow: hidden;
-    overflow-y:visible;
-    
+    overflow-y: visible;
+    background: yellow;
 }
-
-
 </style>

@@ -4,7 +4,7 @@
         :class="{ 'animation-section': true, active: isActive }"
     >
         <div class="container">
-            <div class="card-wrap" v-for="(card, index) in cards" :key="index">
+            <div class="card-wrap" v-for="(card, index) in cards" :key="index" @click="handleCardClick(card, index)">
                 <div
                     class="card"
                     :style="{
@@ -47,6 +47,22 @@ export default {
             required: true
         }
     },
+    methods: {
+    handleCardClick(card) {
+      if (card.header == "Games") {
+        this.$router.push("/games"); 
+      }
+      if (card.header == "Applications") {
+        this.$router.push("/applications"); 
+      }
+      if (card.header == "Integrations") {
+        this.$router.push("/integrations"); 
+      }
+      if (card.header == "Animations") {
+        this.$router.push("/animations"); 
+      }
+    },
+  },
     setup() {
         const mouseX = ref(0);
         const mouseY = ref(0);

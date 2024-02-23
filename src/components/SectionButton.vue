@@ -1,5 +1,5 @@
 <template>
-  <button v-if="nextSection" @click="navigate(nextSection)" class="section-button">
+  <button  @click="navigate(nextSection)" class="section-button">
     <div class="icon-container">
       <i :class="['fa', 'fa-arrow-' + direction, 'icon-center']"></i>
       <div class="icon-overlay"></div>

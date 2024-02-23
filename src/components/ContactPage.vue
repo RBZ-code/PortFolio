@@ -135,6 +135,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 99;
 }
 
 .about-section {
@@ -161,7 +162,7 @@ export default {
 
 .section-heading {
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 70px;
     font-size: 22px; /* Augmentation de la taille de la police */
     max-width: 80%;
     min-height: 50px;
