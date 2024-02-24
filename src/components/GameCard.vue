@@ -1,13 +1,13 @@
 <template>
   <div class="wrap" @click="redirectToURL">
-    <div :style="{ background: 'url(' + backgroundA + ')' }" class="card side-a"></div>
-    <div :style="{ background: 'url(' + backgroundB + ')' }" class="card side-b"></div>
+    <div :style="{ backgroundImage: backgroundA }" class="card side-a"></div>
+    <div :style="{ backgroundImage: backgroundB }" class="card side-b"></div>
   </div>
 </template>
 
 <script>
 export default {
-   props: {
+  props: {
     backgroundA: String,
     backgroundB: String,
     redirectURL: String,
@@ -21,52 +21,44 @@ export default {
 </script>
 
 <style scoped>
-
+/* Vos styles pour la carte ici */
 .wrap {
-    position: relative;
-    margin: 0 auto;
-    width: 250px;
-    height: 350px;
-    cursor: pointer;
-    perspective: 800px;
+  position: relative;
+  margin: 0 auto;
+  width: 250px;
+  height: 350px;
+  cursor: pointer;
+  perspective: 800px;
 }
-.wrap div {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background-position: 50% 50%;
-    background-size: 250px;
-    background-repeat: no-repeat;
-    box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3),
-        0 12px 20px -10px rgba(0, 0, 0, 0.4);
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font: bold 3em sans-serif;
-    line-height: 350px;
-    position: absolute;
-    backface-visibility: hidden;
-    transition: transform 1s ease-in;
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3), 0 12px 20px -10px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font: bold 3em sans-serif;
+  line-height: 350px;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 1s ease-in;
 }
-
 .side-a {
-    background: #498fbc
-        url("http://media-hearth.cursecdn.com/attachments/9/192/feb-2015.png");
+  transform: rotateY(0deg);
 }
-
 .side-b {
-    /* background: #33363b ; */
-    transform: rotateY(-180deg); /* Initial rotation de la carte B */
-}
+  transform: rotateY(-180deg);
 
+}
 .wrap:hover .side-a {
-    transform: rotateY(180deg); /* Rotation de la carte A lors du hover */
+  transform: rotateY(180deg);
 }
-
-.wrap:hover .side-b
-{
-    transform: rotateY(0deg); /* Rotation de la carte B lors du hover */
+.wrap:hover .side-b {
+  transform: rotateY(0deg);
+  
 }
-
 </style>
-

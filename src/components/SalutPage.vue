@@ -141,22 +141,6 @@ export default {
 }
 
 
-@keyframes bounce-in-right {
-    0% {
-        opacity: 0;
-        transform: translateY(-300%);
-    }
-    60% {
-        opacity: 1;
-        transform: translatey(+30px);
-    }
-    80% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
 .btn {
     z-index: 2;
     position: absolute;

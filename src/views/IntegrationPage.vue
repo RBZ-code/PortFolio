@@ -31,10 +31,11 @@ import SectionButton from "@/components/SectionButton.vue";
 export default {
     data() {
         return {
+            image1: "../assets/snake.png",
            
             cardsData: [
                 {
-                    image: "../assets/snake.png",
+                    image: this.image1,
                     header: "Snake",
                     content: "Quelques Jeux à essayer",
                 },

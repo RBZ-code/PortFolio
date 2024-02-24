@@ -40,10 +40,10 @@
 </template>
 
 <script>
+import { Email } from "../assets/smtp/smtp.js";
 import SectionButton from "@/components/SectionButton.vue";
 import CustomButton from "@/components/CustomButton.vue";
 import FondAnimation from "@/components/FondAnimation.vue";
-import axios from "axios";
 
 export default {
     data() {
@@ -63,46 +63,23 @@ export default {
     props: {
         prevSection: String,
         nextSection: String,
-        isActive: Boolean, 
+        isActive: Boolean,
     },
     methods: {
         navigate(section) {
             this.$emit("changeSection", section);
         },
-        sendEmail() {
-            const messageContent = `
-        Nom: ${this.lastName}
-        Prénom: ${this.firstName}
-        Email: ${this.email}
-        Message: ${this.message}
-      `;
-
-            console.log("Message envoyé:", messageContent);
-        },
         submitForm() {
-            const formData = {
-                firstName: this.firstName,
-                lastName: this.lastName,
-                email: this.email,
-                message: this.message,
-            };
+            Email.send({
+                SecureToken: "049b2de7-4494-43f3-b4c0-1f292b1a7cc6",
+                To: "romainbezolles@gmail.com",
+                From: "js.bezolles@gmail.com",
+                Subject: "Test email",
+                Body: 
+                ` Salut comment vas tu ?`
+                   
+            }).then((message) => alert(message));
 
-            axios
-                .post("http://localhost:3000/send-email", formData)
-                .then((response) => {
-                    console.log(response.data);
-                
-                    this.firstName = "";
-                    this.lastName = "";
-                    this.email = "";
-                    this.message = "";
-                })
-                .catch((error) => {
-                    console.error(
-                        "Une erreur s'est produite lors de l'envoi du formulaire:",
-                        error
-                    );
-                });
         },
     },
 };

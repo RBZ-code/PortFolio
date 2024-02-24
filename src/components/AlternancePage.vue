@@ -62,23 +62,15 @@
                     class="cv-page"
                     @click="toggleImageSize"
                 />
-                <a
-                    href="#"
-                    @click="downloadItem"
-                    class="download-btn"
-                    v-bind:class="{ 'download-btn-large': enlargedImage }"
-                >
+                <a :href="pdfLink" download="download">
                     <img
                         src="../assets/download.png"
                         class="download-icon"
                         alt="Télécharger le CV"
-                    />
-                </a>
+                        v-bind:class="{ 'download-btn-large': enlargedImage }"
+                /></a>
             </div>
         </div>
-        
-
-    
 
         <img src="../assets/Ninja.png" alt="ninja" class="ninja" />
         <img src="../assets/Chef2.png" alt="Cuisinier" class="chef" />
@@ -86,16 +78,17 @@
 </template>
 
 <script>
+
 import SectionButton from "@/components/SectionButton.vue";
 import CustomButton from "@/components/CustomButton.vue";
-import Axios from "axios";
-
+import cv from '../assets/DeveloppeurWeb-RomainBezolles-CV.pdf'
 export default {
     data() {
         return {
             sectionId: "Alternance-section",
             showCVModal: false,
             enlargedImage: false,
+            pdfLink: cv,
         };
     },
     components: {
@@ -108,24 +101,6 @@ export default {
         nextSection: String,
     },
     methods: {
-        downloadItem() {
-            const url = "../assets/Cuisinier.png"; 
-            const label = "Cuisinier.png"; 
-
-            Axios.get(url, { responseType: "blob" })
-                .then((response) => {
-                    const blob = new Blob([response.data], {
-                        type: "application/pdf",
-                    });
-                    const link = document.createElement("a");
-                    link.href = URL.createObjectURL(blob);
-                    link.download = label;
-                    link.click();
-                    URL.revokeObjectURL(link.href);
-                })
-                .catch(console.error);
-        },
-
         navigate(section) {
             this.$emit("changeSection", section);
         },
