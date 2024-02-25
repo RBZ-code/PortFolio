@@ -1,11 +1,11 @@
 <template>
-    <section :id="sectionId" class="container">
+    <section :id="sectionId" class="container" :class="{ 'dark-mode': $store.state.isDarkMode }">
         <FondAnimation class="background" />
        
         <div class="content">
             <div class="blockTitle" @click="changeEmoji">
                 <h2 class="section-title" ref="title">
-                    Salut <span class="emoji" ref="emoji">🤓</span>
+                    Salut !
                 </h2>
             
             </div>
@@ -96,7 +96,7 @@ export default {
 
             await this.eraseText(this.$refs.content);
 
-            const lastText = "Bonne navigation !";
+            const lastText = "Bonne navigation .";
 
             await this.typeWriter(lastText, this.$refs.content);
         },

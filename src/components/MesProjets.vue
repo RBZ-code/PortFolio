@@ -1,7 +1,8 @@
 <template>
     <section
         :id="sectionId"
-        :class="{ 'projets-section': true, active: isActive }"
+        class="projets-section"
+        :class="{ 'dark-mode': $store.state.isDarkMode }"
     >
         <div class="container_btn">
             <SectionButton

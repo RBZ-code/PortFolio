@@ -1,38 +1,33 @@
 <template>
-    <div id="app">
+    <div id="app" :class="{ 'dark-mode': $store.state.isDarkMode }">
         <router-view></router-view>
-        <landing-page/>
+        <landing-page />
+        
     </div>
 </template>
 
 <script>
-
 import LandingPage from "./views/LandingPage.vue";
-
-
 
 export default {
     name: "App",
     components: {
         LandingPage,
-
-    },
-    data() {
-        return {
-            currentSection: "welcome", // 
-            
-        };
     },
     methods: {
-        changeSection(section) {
-            this.currentSection = section;
+        toggleTheme() {
+            this.$store.commit("toggleTheme");
+            console.log('clique');
         },
     },
 };
-
 </script>
 
+
+
+
 <style>
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -44,7 +39,7 @@ export default {
     overflow: hidden;
 }
 
-*{
+* {
     margin: 0;
 }
 

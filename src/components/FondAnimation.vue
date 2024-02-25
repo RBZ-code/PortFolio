@@ -1,5 +1,5 @@
 <template>
-  <section class="wrapper">
+  <section class="wrapper" :class="{ 'dark-mode': $store.state.isDarkMode }">
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>

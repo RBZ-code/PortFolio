@@ -1,8 +1,9 @@
 <template>
-    <div class="navbar-toggle" @click="toggleMenu" v-if="!isMenuOpen">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="navbar-toggle" @click="toggleMenu" v-if="!isMenuOpen"
+    :class="{ 'dark-mode': $store.state.isDarkMode }">
+        <span :class="{ 'dark-mode-span': $store.state.isDarkMode }"></span>
+        <span :class="{ 'dark-mode-span': $store.state.isDarkMode }"></span>
+        <span :class="{ 'dark-mode-span': $store.state.isDarkMode }"></span>
     </div>
     <nav class="navbar" :class="{ active: isMenuOpen }" ref="burgerMenu">
         <ul class="navbar-menu">
@@ -47,6 +48,10 @@ export default {
 </script>
 
 <style scoped>
+.dark-mode-span {
+    background-color: #000 !important;
+}
+
 .navbar {
     position: fixed;
     top: 0;

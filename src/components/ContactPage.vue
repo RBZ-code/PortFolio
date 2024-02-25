@@ -1,7 +1,8 @@
 <template>
     <section
         :id="sectionId"
-        :class="{ 'about-section': true, active: isActive }"
+        class= "about-section"   
+        :class="{ 'dark-mode': $store.state.isDarkMode }"  
     >
         <FondAnimation class="background" />
         <div class="container_btn">
@@ -15,17 +16,13 @@
 
         <div class="content-contact">
             <h3 class="section-heading">
-                Vous avez une opportunité de stage ou d'alternance à me proposer
-                ?
+                Vous avez une opportunité de stage ou d'alternance à me
+                proposer ? 
             </h3>
             <h3 class="section-subheading">N'hésitez pas à me contacter.</h3>
             <div class="content-form">
                 <form @submit.prevent="submitForm">
-                    <input
-                        type="text"
-                        placeholder="Prénom"
-                        v-model="firstName"
-                    />
+                    <input type="text" placeholder="Prénom" v-model="firstName" />
                     <input type="text" placeholder="Nom" v-model="lastName" />
                     <input type="email" placeholder="Email" v-model="email" />
                     <textarea

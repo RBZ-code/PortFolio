@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <section class="section" :class="{ 'dark-mode': $store.state.isDarkMode }">
         <div class="container_btn">
             <SectionButton class="btn-top" direction="left" @click="goBack" />
         </div>
