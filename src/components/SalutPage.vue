@@ -1,7 +1,7 @@
 <template>
     <section :id="sectionId" class="container">
         <FondAnimation class="background" />
-        <!-- <img class="ordi" src="../assets/ordi.png" alt="" /> -->
+       
         <div class="content">
             <div class="blockTitle" @click="changeEmoji">
                 <h2 class="section-title" ref="title">
@@ -10,7 +10,7 @@
             
             </div>
             <p class="section-content" ref="content">
-                <!-- Texte initial vide -->
+                
             </p>
         </div>
         <SectionButton
@@ -24,6 +24,7 @@
 <script>
 import FondAnimation from "@/components/FondAnimation.vue";
 import SectionButton from "@/components/SectionButton.vue";
+
 
 export default {
     name: "SectionPage",
@@ -79,7 +80,7 @@ export default {
 
             
            
-            const contentText = "Bienvenue sur le portfolio de Romain Bezolles";
+            const contentText = "Bienvenue sur mon portfolio.";
 
             await this.typeWriter(contentText, this.$refs.content);
 
@@ -106,9 +107,9 @@ export default {
     watch: {
     isActive: function(newValue) {
         if (newValue) {
-            this.startTyping(); // Appel de startTyping() si la page est active
+            this.startTyping(); 
         } else {
-            // Remettre le contenu à l'état initial si la page n'est plus active
+          
             this.$refs.title.textContent = "";
             this.$refs.emoji.textContent = "";
             this.$refs.content.textContent = "";
@@ -120,7 +121,6 @@ export default {
 
 <style lang="scss" scoped>
 .container{
-    // position: relative;
     overflow: hidden;
     padding: 0;
 
@@ -166,9 +166,7 @@ export default {
     transition: all 0.35s linear;
     z-index: 2;
 
-    &:hover {
-        transform: translateY(-5px);
-    }
+  
 }
 
 section {

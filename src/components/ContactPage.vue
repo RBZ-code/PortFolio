@@ -15,26 +15,32 @@
 
         <div class="content-contact">
             <h3 class="section-heading">
-                Vous avez une opportunité de stage ou d'alternance à me
-                proposer, ou simplement envie de discuter ? N'hésitez pas à me
-                contacter.
+                Vous avez une opportunité de stage ou d'alternance à me proposer
+                ?
             </h3>
-            <form @submit.prevent="submitForm">
-                <input type="text" placeholder="Prénom" v-model="firstName" />
-                <input type="text" placeholder="Nom" v-model="lastName" />
-                <input type="email" placeholder="Email" v-model="email" />
-                <textarea
-                    placeholder="Veuillez écrire votre message ici"
-                    v-model="message"
-                ></textarea>
-                <CustomButton
-                    type="submit"
-                    class="btn-custom"
-                    buttonText="Envoyer"
-                    background="#2ecc71"
-                    @click="sendEmail"
-                />
-            </form>
+            <h3 class="section-subheading">N'hésitez pas à me contacter.</h3>
+            <div class="content-form">
+                <form @submit.prevent="submitForm">
+                    <input
+                        type="text"
+                        placeholder="Prénom"
+                        v-model="firstName"
+                    />
+                    <input type="text" placeholder="Nom" v-model="lastName" />
+                    <input type="email" placeholder="Email" v-model="email" />
+                    <textarea
+                        placeholder="Veuillez écrire votre message ici"
+                        v-model="message"
+                    ></textarea>
+                    <CustomButton
+                        type="submit"
+                        class="btn-custom"
+                        buttonText="Envoyer"
+                        background="#2ecc71"
+                        @click="sendEmail"
+                    />
+                </form>
+            </div>
         </div>
     </section>
 </template>
@@ -75,11 +81,8 @@ export default {
                 To: "romainbezolles@gmail.com",
                 From: "js.bezolles@gmail.com",
                 Subject: "Test email",
-                Body: 
-                ` Salut comment vas tu ?`
-                   
+                Body: ` Salut comment vas tu ?`,
             }).then((message) => alert(message));
-
         },
     },
 };
@@ -108,6 +111,12 @@ export default {
     top: 20px;
 }
 
+.content-form {
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 .container_btn {
     display: flex;
     justify-content: center;
@@ -139,10 +148,10 @@ export default {
 
 .section-heading {
     margin-top: 80px;
-    margin-bottom: 70px;
-    font-size: 22px; /* Augmentation de la taille de la police */
-    max-width: 80%;
-    min-height: 50px;
+    margin-bottom: 20px;
+    /* font-size: 22px;  */
+    /* max-width: 80%; */
+    /* min-height: 50px; */
 }
 
 form {
@@ -174,5 +183,31 @@ textarea {
     border: 1px solid #c4c4c4;
     border-radius: 5px;
     font-family: var(--font-text);
+}
+
+@media screen and (max-width: 410px) {
+    .section-heading {
+        font-size: 18px; /* Réduction de la taille de la police */
+        text-align: center; /* Centrer le texte */
+    }
+
+    .section-subheading {
+        font-size: 16px; /* Réduction de la taille de la police */
+        text-align: center; /* Centrer le texte */
+    }
+
+    .content-form {
+        padding: 10px; /* Ajout de padding pour l'espace autour du formulaire */
+        margin: 0 10px; /* Ajout de margin pour éloigner le formulaire des bords */
+    }
+
+    input,
+    textarea {
+        max-width: 90%; /* Réduction de la largeur maximale des champs */
+    }
+
+    .btn-custom {
+        margin-top: 30px; /* Réduction de la marge supérieure du bouton */
+    }
 }
 </style>

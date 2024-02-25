@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     redirectToURL() {
-      window.location.href = this.redirectURL;
+      window.open(this.redirectURL, "_blank");
     }
   }
 };

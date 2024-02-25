@@ -115,6 +115,8 @@ export default {
 <style>
 
 
+
+
 .container {
     padding: 0 80px;
     display: flex;

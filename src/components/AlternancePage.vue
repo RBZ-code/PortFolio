@@ -72,7 +72,7 @@
             </div>
         </div>
 
-        <img src="../assets/Ninja.png" alt="ninja" class="ninja" />
+        <!-- <img src="../assets/Ninja.png" alt="ninja" class="ninja" /> -->
         <img src="../assets/Chef2.png" alt="Cuisinier" class="chef" />
     </section>
 </template>
@@ -268,7 +268,16 @@ export default {
     font-size: 20px;
     margin: 10px 0;
     max-width: 600px;
-    text-align: center;
+    text-align: center ;
+}
+@media (max-width: 600px) {
+    .about-description {
+        font-size: 16px; 
+        max-width: 400px;
+        text-align: center;
+        padding: 0 5%;
+        margin: auto;
+    }
 }
 
 .container_btn {

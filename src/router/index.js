@@ -5,7 +5,9 @@ import animations from "@/views/AnimationPage.vue";
 import integrations from "@/views/IntegrationPage.vue";
 
 
+
 const routes = [
+ 
     {
         path: "/games",
         name: "games",
