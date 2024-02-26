@@ -73,7 +73,6 @@
             </div>
         </div>
 
-        <img src="../assets/Ninja.png" alt="ninja" class="ninja" />
         <img src="../assets/Chef2.png" alt="Cuisinier" class="chef" />
     </section>
 </template>
