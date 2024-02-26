@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <!-- <img src="../assets/Ninja.png" alt="ninja" class="ninja" /> -->
+        <img src="../assets/Ninja.png" alt="ninja" class="ninja" />
         <img src="../assets/Chef2.png" alt="Cuisinier" class="chef" />
     </section>
 </template>
@@ -82,7 +82,7 @@
 
 import SectionButton from "@/components/SectionButton.vue";
 import CustomButton from "@/components/CustomButton.vue";
-import cv from '../assets/DeveloppeurWeb-RomainBezolles-CV.pdf'
+import cv from '../../dist/Romain Bezolles - CV -DEV.pdf';
 export default {
     data() {
         return {

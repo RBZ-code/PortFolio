@@ -81,6 +81,7 @@ export default {
     top: 4%;
     right: 4%;
     z-index: 10;
+    background-color: transparent !important;
 }
 
 .navbar-toggle span {

@@ -13,6 +13,7 @@ module.exports = {
           name: '[name].[ext]'
         })
         .end();
-    }
+    },
+    publicPath: "/PortFolio/"
   };
   
