@@ -81,14 +81,14 @@
 
 import SectionButton from "@/components/SectionButton.vue";
 import CustomButton from "@/components/CustomButton.vue";
-import cv from '../../dist/Romain Bezolles - CV -DEV.pdf';
+// import cv from '../../dist/Romain Bezolles - CV -DEV.pdf';
 export default {
     data() {
         return {
             sectionId: "Alternance-section",
             showCVModal: false,
             enlargedImage: false,
-            pdfLink: cv,
+            // pdfLink: cv,
         };
     },
     components: {

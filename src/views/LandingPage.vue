@@ -103,8 +103,8 @@ export default {
 
 <style>
 .dark-mode {
-    background-color: #111;
-    color: #eee;
+    background-color: #111 !important;
+    color: #eee !important;
 }
 
 .dark-mode a {
