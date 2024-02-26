@@ -43,47 +43,65 @@
 </template>
 
 <script>
-import { Email } from "../assets/smtp/smtp.js";
 import SectionButton from "@/components/SectionButton.vue";
 import CustomButton from "@/components/CustomButton.vue";
 import FondAnimation from "@/components/FondAnimation.vue";
 
 export default {
-    data() {
-        return {
-            sectionId: "about-section",
-            firstName: "",
-            lastName: "",
-            email: "",
-            message: "",
-        };
+  data() {
+    return {
+      sectionId: "about-section",
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: "",
+    };
+  },
+
+  components: {
+    SectionButton,
+    CustomButton,
+    FondAnimation,
+  },
+
+  props: {
+    prevSection: String,
+    nextSection: String,
+    isActive: Boolean,
+  },
+
+  methods: {
+    navigate(section) {
+      this.$emit("changeSection", section);
     },
-    components: {
-        SectionButton,
-        CustomButton,
-        FondAnimation,
+
+    sendEmail() {
+      const firstName = this.firstName;
+      const lastName = this.lastName;
+      const message = this.message;
+
+      let subject, body;
+
+      subject = encodeURIComponent("Demande de formulaire de contact");
+      body = encodeURIComponent(
+        `Bonjour Romain, \n\n ${message} \n\n Cordialement, \n\n ${firstName} ${lastName}`
+      );
+
+      const mailtoLink = `mailto:romainbezolles@gmail.com?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoLink;
+
+      this.firstName= ""
+      this.lastName= ""
+      this.email= ""
+      this.message= "";
+
+
     },
-    props: {
-        prevSection: String,
-        nextSection: String,
-        isActive: Boolean,
-    },
-    methods: {
-        navigate(section) {
-            this.$emit("changeSection", section);
-        },
-        submitForm() {
-            Email.send({
-                SecureToken: "049b2de7-4494-43f3-b4c0-1f292b1a7cc6",
-                To: "romainbezolles@gmail.com",
-                From: "js.bezolles@gmail.com",
-                Subject: "Test email",
-                Body: ` Salut comment vas tu ?`,
-            }).then((message) => alert(message));
-        },
-    },
+  },
 };
 </script>
+
 
 <style scoped>
 .background {
@@ -146,9 +164,6 @@ export default {
 .section-heading {
     margin-top: 80px;
     margin-bottom: 20px;
-    /* font-size: 22px;  */
-    /* max-width: 80%; */
-    /* min-height: 50px; */
 }
 
 form {
