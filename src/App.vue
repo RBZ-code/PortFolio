@@ -17,7 +17,6 @@ export default {
     methods: {
         toggleTheme() {
             this.$store.commit("toggleTheme");
-            console.log('clique');
         },
     },
 };

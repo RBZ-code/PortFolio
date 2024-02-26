@@ -3,7 +3,7 @@
         <FondAnimation class="background" />
        
         <div class="content">
-            <div class="blockTitle" @click="changeEmoji">
+            <div class="blockTitle">
                 <h2 class="section-title" ref="title">
                     Salut !
                 </h2>
@@ -32,23 +32,10 @@ export default {
         SectionButton,FondAnimation
     },
     props: ["prevSection", "nextSection"],
-    data() {
-        return {
-            emojis: ["😎", "🤓"], 
-            isActive: false,
-        };
-    },
     
     methods: {
         navigate(section) {
             this.$emit("changeSection", section);
-        },
-        async changeEmoji() {
-            if (this.$refs.emoji.textContent === this.emojis[0]) {
-                this.$refs.emoji.textContent = this.emojis[1];
-            } else {
-                this.$refs.emoji.textContent = this.emojis[0];
-            }
         },
 
         async typeWriter(text, element, delay = 50) {
@@ -161,13 +148,6 @@ export default {
     font-size: 46px;
 }
 
-.blockTitle {
-    cursor: pointer;
-    transition: all 0.35s linear;
-    z-index: 2;
-
-  
-}
 
 section {
     display: flex;

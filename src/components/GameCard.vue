@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style scoped>
-/* Vos styles pour la carte ici */
+
 .wrap {
   position: relative;
   margin: 0 auto;

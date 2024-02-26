@@ -97,7 +97,6 @@ export default {
     },
     props: {
         prevSection: String,
-        isActive: Boolean,
         nextSection: String,
     },
     methods: {

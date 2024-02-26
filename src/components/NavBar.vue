@@ -25,16 +25,21 @@ export default {
     },
     methods: {
         toggleMenu(event) {
-            event.stopPropagation(); // Empêche la propagation de l'événement click vers le document
+            event.stopPropagation(); 
             this.isMenuOpen = !this.isMenuOpen;
         },
         navigateTo(section) {
-            this.$emit("changeSection", section);
-            this.isMenuOpen = false; // Fermer le menu après avoir cliqué sur une section
+            if (this.$route.path !== '/') {
+                this.$router.push('/'); 
+            }
+            this.$nextTick(() => {
+                this.$emit("changeSection", section); // Émettre un événement pour indiquer la section spécifique après la redirection vers la page d'accueil
+            });
+            this.isMenuOpen = false; 
         },
         handleGlobalClick(event) {
             if (!this.$refs.burgerMenu.contains(event.target)) {
-                this.isMenuOpen = false; // Ferme le menu si le clic est en dehors du menu
+                this.isMenuOpen = false; 
             }
         },
     },
@@ -55,22 +60,22 @@ export default {
 .navbar {
     position: fixed;
     top: 0;
-    right: 0; /* Déplacer la barre de navigation vers la droite */
-    width: 100px; /* Largeur de la barre de navigation */
+    right: 0; 
+    width: 100px; 
     height: 100vh;
     background-color: rgba(51, 51, 51, 0.5);
     z-index: 1000;
 
-    transition: transform 0.3s ease-in-out; /* Ajout d'une transition pour une animation fluide */
+    transition: transform 0.3s ease-in-out; 
     transform: translateX(
         100%
-    ); /* Par défaut, la barre de navigation est déplacée vers la droite et n'est pas visible */
+    ); 
 }
 
 .navbar.active {
     transform: translateX(
         0
-    ); /* Lorsque le menu est ouvert, la barre de navigation est ramenée à sa position originale */
+    ); 
 }
 
 .navbar-toggle {
@@ -104,11 +109,11 @@ export default {
 }
 
 .navbar-menu li {
-    margin-bottom: 20px; /* Espacement entre les éléments du menu */
+    margin-bottom: 20px; 
 }
 
 .navbar-menu li a {
-    position: relative; /* Ajoutez cette ligne pour que les pseudo-éléments soient positionnés par rapport aux liens */
+    position: relative; 
     color: #fff;
     text-decoration: none;
     font-size: 14px;
@@ -120,10 +125,10 @@ export default {
 .navbar-menu li a::before {
     content: "";
     position: absolute;
-    bottom: 0; /* Mettez le trait de soulignement en dessous du texte */
+    bottom: 0; 
     left: 0;
-    width: 100%; /* Ajustez la largeur pour qu'elle corresponde à la largeur du texte */
-    height: 1px; /* Ajustez l'épaisseur du trait de soulignement */
+    width: 100%; 
+    height: 1px; 
     background-color: #3498db;
     transform: scaleX(0);
     transform-origin: center;
