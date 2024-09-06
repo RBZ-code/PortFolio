@@ -18,7 +18,7 @@
                 Recherche de stage et d'alternance
             </h2>
             <p class="about-description">
-                Je suis actuellement à la recherche d'un stage dans le domaine
+                Je suis actuellement à la recherche d'une alternance dans le domaine
                 du développement web. Passionné et motivé, je suis prêt à
                 plonger tête baissée dans un environnement professionnel pour
                 acquérir de l'expérience concrète et mettre mes compétences en
@@ -259,15 +259,16 @@ export default {
 
 .section-title {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
 .about-description {
     font-size: 20px;
-    margin: 10px 0;
-    max-width: 600px;
+    margin: 20px 0;
+    max-width: 800px;
     text-align: center ;
+    padding: 0 20px;
 }
 @media (max-width: 600px) {
     .about-description {

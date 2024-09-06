@@ -19,6 +19,7 @@
             @changeSection="navigate"
         />
     </section>
+    
 </template>
 
 <script>
@@ -107,82 +108,91 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
-    overflow: hidden;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
+.container {
+  overflow: hidden;
+  padding: 0;
 }
 
 .background {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 }
 
-.content{
-    animation: bounce-in-right 2s ease forwards;
-    z-index: 2;
+.content {
+  animation: bounce-in-right 2s ease forwards;
+  z-index: 2;
 }
-
 
 .btn {
-    z-index: 2;
-    position: absolute;
-    bottom: 100px;
+  z-index: 2;
+  position: absolute;
+  bottom: 100px;
 }
 
 .ordi {
-    width: 600px;
-    position: absolute;
-    top: 150px;
-    opacity: 0.5;
-    z-index: 1;
+  width: 600px;
+  position: absolute;
+  top: 150px;
+  opacity: 0.5;
+  z-index: 1;
 }
 
 .emoji {
-    display: block;
-    align-self: center;
-    font-size: 46px;
+  display: block;
+  align-self: center;
+  font-size: 46px;
 }
 
-
 section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
-    background-color: #0D0D0D;
-    color: aliceblue;
-    position: relative;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #0d0d0d;
+  color: aliceblue;
+  position: relative;
+  overflow: hidden;
 
-    .section-title {
-        font-size: 46px;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-    }
+  .section-title {
+    font-size: 64px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Bebas Neue", sans-serif;
+    background: linear-gradient(white, #3498db);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.dark-mode .section-title {
+  background: linear-gradient(black, #3498db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .section-content {
-    padding: 0;
-    margin-top: 10px;
-    height: fit-content;
-    font-size: 30px;
-    text-align: center;
-    line-height: 1.5;
-    min-height: 50px;
-    position: relative;
-    display: inline-block;
-    z-index: 2;
-
-
+  padding: 0;
+  margin-top: 10px;
+  height: fit-content;
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.5;
+  min-height: 50px;
+  position: relative;
+  display: inline-block;
+  z-index: 2;
 }
 </style>
+

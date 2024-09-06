@@ -38,9 +38,10 @@ export default {
             sectionId: "projets-section",
             cardsData: [
                 {
-                    image: "https://images.unsplash.com/photo-1504370164829-8c6ef0c41d06?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    header: "Games",
-                    content: "Découvrez une sélection de jeux à essayer.",
+                    image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    header: "Integrations",
+                    content:
+                        "Découvrez des intégrations et des projets combinant différentes technologies.",
                 },
                 {
                     image: "https://plus.unsplash.com/premium_photo-1669658981858-b2ae0d7581a3?q=80&w=1108&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -49,10 +50,9 @@ export default {
                         "Explorez différentes applications utiles et amusantes.",
                 },
                 {
-                    image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    header: "Integrations",
-                    content:
-                        "Découvrez des intégrations et des projets combinant différentes technologies.",
+                    image: "https://images.unsplash.com/photo-1504370164829-8c6ef0c41d06?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    header: "Games",
+                    content: "Découvrez une sélection de jeux à essayer.",
                 },
                 {
                     image: "https://images.unsplash.com/photo-1637416067365-2b5e7e8fe8fa?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",

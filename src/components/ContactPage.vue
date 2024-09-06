@@ -199,27 +199,27 @@ textarea {
 
 @media screen and (max-width: 410px) {
     .section-heading {
-        font-size: 18px; /* Réduction de la taille de la police */
-        text-align: center; /* Centrer le texte */
+        font-size: 18px; 
+        text-align: center; 
     }
 
     .section-subheading {
-        font-size: 16px; /* Réduction de la taille de la police */
-        text-align: center; /* Centrer le texte */
+        font-size: 16px; 
+        text-align: center; 
     }
 
     .content-form {
-        padding: 10px; /* Ajout de padding pour l'espace autour du formulaire */
-        margin: 0 10px; /* Ajout de margin pour éloigner le formulaire des bords */
+        padding: 10px; 
+        margin: 0 10px; 
     }
 
     input,
     textarea {
-        max-width: 90%; /* Réduction de la largeur maximale des champs */
+        max-width: 90%; 
     }
 
     .btn-custom {
-        margin-top: 30px; /* Réduction de la marge supérieure du bouton */
+        margin-top: 30px; 
     }
 }
 </style>
