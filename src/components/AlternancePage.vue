@@ -28,12 +28,6 @@
                 Si vous cherchez quelqu'un de curieux et déterminé à rejoindre
                 votre équipe, je suis là !
             </p>
-            <p class="about-description">
-                Je suis également ouvert à une opportunité d'alternance pour
-                l'année prochaine. Si vous êtes prêts à accueillir un étudiant
-                motivé et désireux d'apprendre tout en contribuant à votre
-                projet, n'hésitez pas à me contacter.
-            </p>
         </div>
         <div class="block-btns">
             <CustomButton
